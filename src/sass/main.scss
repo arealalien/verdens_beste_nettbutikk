@@ -1,0 +1,171 @@
+@import "colors";
+@import "utilities";
+@import "mixins";
+
+/* -
+-*-~*~-*-*-~*~-*-*-~*~*-*-~*~-*-*-~*~-*-*-~*~*-*-~*~-* |
+
+　. 　　　　　　　　　　　　　　　　　　o 　　　　　+
+　　()　　　　　　+　 Made with ❤ by ~
+　　　　　o 　　　      Areal Alien　　　　.
+　　.　　　　　　　　　　　.
+　　　　　　　　　　 ●▬▬▬๑ 💙 ๑▬▬▬●　　　　　　()
+　　+　　　　　　. 　　　　　　　　　　　　　　o
+　o　　　　　　　　　　　 ▄▀▄　　　▄▀▄　　　　　　　+
+　　　　　　+　　　　　 ▄█░░▀▀▀▀▀░░█▄　　.
+　　　.　　　　　 ▄▄ 　█░░░░░░░░░░░█　▄▄
+　　　　　　.　 █▄▄█　█░░▀░░┬░░▀░░█　█▄▄█　　　o
+
+-*-~*~-*-*-~*~-*-*-~*~*-*-~*~-*-*-~*~-*-*-~*~*-*-~*~-* |
+- */
+
+/* Table of contents
+
+
+
+*/
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+html, body {
+  margin: 0;
+  width: 100%; height: 100vh;
+  color: hslac($white, 1);
+  font-family: $font-main;
+  background-color: hslac($background, 1);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+.view-width {
+  width: calc(100% - 4em);
+  max-width: 1420px;
+}
+
+.navbar {
+  top: 2em;
+  width: 100%; height: 5em;
+  position: absolute;
+  z-index: 100;
+  @include flex-center();
+  &-inner {
+    padding: 0 2.5em;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background-color: hslac($background-dark, 1);
+    box-shadow: 0 16px 38px -24px hslac($black, .5);
+    border-radius: .75em;
+  }
+  /* Left */
+  &-left {
+    height: 100%;
+    &-icon-wrapper {
+      height: 100%;
+      @include flex-center();
+    }
+    &-logo {
+      height: 2.5em;
+      fill: hsl(var(--white));
+    }
+  }
+  /* Right */
+  &-right {
+    width: 100%; height: 100%;
+    @include flex-right();
+    &-items-wrapper {
+      height: 100%;
+      @include flex-right();
+    }
+    &-items {
+      margin: 0; padding: 0;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      grid-gap: 2.5em;
+    }
+    &-item {
+      height: 100%;
+      @include flex-center();
+    }
+    &-item {
+      height: 100%;
+      @include flex-center();
+    }
+    &-item-inner {
+      width: 100%; height: 100%;
+      color: hslac($white, 1);
+      text-decoration: none;
+      font-weight: 300;
+      transition: color .15s ease-in-out;
+      @include flex-center();
+    }
+    &-item-inner.active {
+      color: hslac($primary, 1) !important;
+    }
+    &-item-inner:hover {
+      color: hslac($primary, 1);
+    }
+    &-item-inner:visited {
+      color: hslac($white, 1);
+    }
+    &-item-inner:visited:hover {
+      color: hslac($primary, 1);
+    }
+    &-item-inner span {
+      margin: 0 .75em 0 0;
+    }
+  }
+}
+.header {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  @include flex-col();
+  &::after {
+    width: 100%; height: 100%;
+    content: "";
+    position: absolute;
+    background: linear-gradient(hslac($black, .33) 0, hslac($black, .66) 100%);
+    z-index: 4;
+  }
+  span {
+    margin: 0;
+    position: relative;
+    color: hslac($primary, 1);
+    z-index: 5;
+  }
+  h1 {
+    margin: 0;;
+    position: relative;
+    color: hslac($white, 1);
+    font-size: $heading-large;
+    font-weight: 900;
+    text-transform: uppercase;
+    z-index: 5;
+  }
+  &-background {
+    min-width: 100%; min-height: 100%;
+    max-width: 110%;
+    position: absolute;
+    object-fit: cover;
+  }
+}
+.main {
+  min-height: 100vh;
+}
+/* Selection */
+::selection {
+  color: hslac($white, 1);
+  background: hslac($black, 1);
+}
+/* Scrollbar */
+.scrollbar-track {
+  background-color: transparent !important;
+}
+.scrollbar-thumb {
+  border-radius: 0 !important;
+  background-color: hslac($primary, 1) !important;
+}
