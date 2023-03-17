@@ -1,11 +1,11 @@
 import React from 'react';
 import './css/main.css';
 
-function Projects() {
+function Product() {
     return (
         <>
             <header className="header">
-                <h1>Projects</h1>
+                <h1>Product</h1>
             </header>
             <main className="main">
 
@@ -14,4 +14,4 @@ function Projects() {
     );
 }
 
-export default Projects;
+export default Product;

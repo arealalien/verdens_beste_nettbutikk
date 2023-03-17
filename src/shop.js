@@ -1,11 +1,11 @@
 import React from 'react';
 import './css/main.css';
 
-function About() {
+function Shop() {
     return (
         <>
             <header className="header">
-                <h1>About</h1>
+                <h1>Shop</h1>
             </header>
             <main className="main">
 
@@ -14,4 +14,4 @@ function About() {
     );
 }
 
-export default About;
+export default Shop;
