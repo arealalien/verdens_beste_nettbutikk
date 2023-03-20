@@ -13,8 +13,8 @@ export function Navbar() {
                         <div className="navbar-left-items-wrapper">
                             <ul className="navbar-left-items">
                                 <li className="navbar-left-item">
-                                    <NavLink className="navbar-left-item-inner" to="/shop">
-                                        Shop
+                                    <NavLink className="navbar-left-item-inner" to="/">
+                                        Home
                                     </NavLink>
                                 </li>
                                 <li className="navbar-left-item">

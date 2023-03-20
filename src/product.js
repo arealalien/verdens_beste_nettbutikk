@@ -1,5 +1,7 @@
 import React from 'react';
 import './css/main.css';
+import {Products} from "./components/products";
+import {Slider} from "./components/slider";
 
 function Product() {
     return (
@@ -7,9 +9,8 @@ function Product() {
             <header className="header">
                 <h1>Product</h1>
             </header>
-            <main className="main">
-
-            </main>
+            <Slider name={"Spring Sale!"}></Slider>
+            <Products></Products>
         </>
     );
 }
