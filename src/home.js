@@ -13,7 +13,8 @@ function Home() {
                     <div className="header-inner-background">
                         <div className="header-inner-background-left"></div>
                         <div className="header-inner-background-center">
-                            <img className="header-inner-background-center-image" src="https://images.unsplash.com/photo-1656747527558-127eab6fd9ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1965&q=80" alt="" />
+                            {/*<img className="header-inner-background-center-image" src="https://images.unsplash.com/photo-1605304627402-4ccc82b54fa7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80" alt="" />*/}
+                            <img className="header-inner-background-center-image" src="https://images.unsplash.com/photo-1593405510616-610292359434?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" alt="" />
                         </div>
                         <div className="header-inner-background-right"></div>
                     </div>

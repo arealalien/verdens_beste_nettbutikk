@@ -218,6 +218,7 @@ html, body {
           min-width: 100%; min-height: 100%;
           position: absolute;
           object-fit: cover;
+          filter: grayscale(100%) brightness(90%);
           z-index: 1;
         }
       }
