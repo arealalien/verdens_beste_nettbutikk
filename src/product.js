@@ -6,11 +6,9 @@ import {Slider} from "./components/slider";
 function Product() {
     return (
         <>
-            <header className="header">
-                <h1>Product</h1>
-            </header>
+            <header className="header small-header"></header>
             <Slider name={"Spring Sale!"}></Slider>
-            <Products></Products>
+            <Products ident={"view"}></Products>
         </>
     );
 }

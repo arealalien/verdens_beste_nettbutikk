@@ -5,9 +5,7 @@ import {Slider} from "./components/slider";
 function Contact() {
     return (
         <>
-            <header className="header">
-                <h1>Contact</h1>
-            </header>
+            <header className="header small-header"></header>
             <Slider name={"Reach out!"}></Slider>
             <main className="main">
 

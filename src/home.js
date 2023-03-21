@@ -23,7 +23,7 @@ function Home() {
                 </div>
             </header>
             <Slider name={"Spring Sale!"}></Slider>
-            <Products></Products>
+            <Products ident={"showcase"}></Products>
         </>
     );
 }
