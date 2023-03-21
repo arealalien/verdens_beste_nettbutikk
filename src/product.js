@@ -20,7 +20,9 @@ function ProductView() {
             <main className="main">
                 <section className="product view-width">
                     <div className="product-left">
-                        <img className="product-left-image" src={productImage} alt="" />
+                        <div className="product-left-container">
+                            <img className="product-left-container-image" src={productImage} alt="" />
+                        </div>
                     </div>
                     <div className="product-right">
                         <h2 className="product-right-title">{productName}</h2>
