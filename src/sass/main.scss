@@ -330,7 +330,7 @@ html, body {
   display: grid;
   gap: 1em;
   &-block:hover &-block-overlay {
-    opacity: .88;
+    opacity: .8;
   }
   &-block {
     width: 100%; height: 1fr;
@@ -342,7 +342,7 @@ html, body {
       position: absolute;
       background: linear-gradient(hslac($black, .66) 0, hslac($black, .77) 75%, hslac($black, .88) 100%);
       transition: all .15s cubic-bezier($transition-main, 1);
-      opacity: .55;
+      opacity: .5;
       cursor: pointer;
       z-index: 3;
     }
@@ -501,13 +501,16 @@ html, body {
     &-left {
       @include flex-center();
       &-logo {
-        height: 3em;
-        text {
-          fill: hslac($primary, 1);
-          font-family: $font-logo;
-          font-size: 361.94px;
-          tspan:nth-child(1), tspan:nth-child(3) {
-            letter-spacing: 0;
+        @include flex-center();
+        &-svg {
+          height: 3em;
+          text {
+            fill: hslac($primary, 1);
+            font-family: $font-logo;
+            font-size: 361.94px;
+            tspan:nth-child(1), tspan:nth-child(3) {
+              letter-spacing: 0;
+            }
           }
         }
       }
