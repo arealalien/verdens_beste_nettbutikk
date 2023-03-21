@@ -18,8 +18,8 @@ export function Navbar() {
                                     </NavLink>
                                 </li>
                                 <li className="navbar-left-item">
-                                    <NavLink className="navbar-left-item-inner" to="/product">
-                                        Product
+                                    <NavLink className="navbar-left-item-inner" to="/products">
+                                        Products
                                     </NavLink>
                                 </li>
                                 <li className="navbar-left-item">
@@ -31,7 +31,11 @@ export function Navbar() {
                         </div>
                     </div>
                     <div className="navbar-center">
-                        <NavLink className="navbar-center-icon-wrapper" to="/"><img src={logo} className="navbar-center-logo" alt="logo"/></NavLink>
+                        <NavLink className="navbar-center-icon-wrapper" to="/">
+                            <svg className="navbar-center-logo" viewBox="0 0 887.46 404.28">
+                                <text transform="translate(0 307.64)"><tspan x="0" y="0">C</tspan><tspan x="269.64" y="0">l</tspan><tspan x="339.49" y="0">o</tspan><tspan x="549.78" y="0">th</tspan></text>
+                            </svg>
+                        </NavLink>
                     </div>
                     <div className="navbar-right">
                         <div className="navbar-right-items-wrapper">
@@ -51,7 +55,7 @@ export function Navbar() {
                                     </div>
                                 </li>
                                 <li className="navbar-right-item">
-                                    <div className="navbar-right-item-inner navbar-right-item-button">
+                                    <NavLink className="navbar-right-item-inner navbar-right-item-button" to="/cart">
                                         <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <title>Buy</title>
                                             <g id="buy-ico-outer" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
@@ -61,7 +65,7 @@ export function Navbar() {
                                                 </g>
                                             </g>
                                         </svg>
-                                    </div>
+                                    </NavLink>
                                 </li>
                             </ul>
                         </div>

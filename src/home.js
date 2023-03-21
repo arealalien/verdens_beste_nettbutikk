@@ -9,8 +9,10 @@ function Home() {
             <header className="header">
                 <div className="header-inner view-width">
                     <div className="header-inner-title">
-                        <span>Verdens Beste</span>
-                        <h1>Nettbutikk</h1>
+                        <span>Welcome to</span>
+                        <svg className="header-inner-title-logo" viewBox="0 0 887.46 404.28">
+                            <text transform="translate(0 307.64)"><tspan x="0" y="0">C</tspan><tspan x="269.64" y="0">l</tspan><tspan x="339.49" y="0">o</tspan><tspan x="549.78" y="0">th</tspan></text>
+                        </svg>
                     </div>
                     <div className="header-inner-background">
                         <div className="header-inner-background-left"></div>
