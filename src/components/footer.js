@@ -38,6 +38,18 @@ export function Footer() {
                                 </NavLink>
                             </li>
                         </ul>
+                        <ul className="footer-bottom-right-items">
+                            <li className="footer-bottom-right-item">
+                                <NavLink className="footer-bottom-right-item-inner" to="/cart">
+                                    Support
+                                </NavLink>
+                            </li>
+                            <li className="footer-bottom-right-item">
+                                <NavLink className="footer-bottom-right-item-inner" to="/cart">
+                                    Terms of service
+                                </NavLink>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </footer>

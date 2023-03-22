@@ -68,6 +68,12 @@ export function Navbar() {
                                     </NavLink>
                                 </li>
                             </ul>
+                            <div className="navbar-button">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
                         </div>
                     </div>
                 </div>
