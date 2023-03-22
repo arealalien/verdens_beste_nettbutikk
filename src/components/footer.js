@@ -40,12 +40,12 @@ export function Footer() {
                         </ul>
                         <ul className="footer-bottom-right-items">
                             <li className="footer-bottom-right-item">
-                                <NavLink className="footer-bottom-right-item-inner" to="/cart">
+                                <NavLink className="footer-bottom-right-item-inner" to="/support">
                                     Support
                                 </NavLink>
                             </li>
                             <li className="footer-bottom-right-item">
-                                <NavLink className="footer-bottom-right-item-inner" to="/cart">
+                                <NavLink className="footer-bottom-right-item-inner" to="/tos">
                                     Terms of service
                                 </NavLink>
                             </li>

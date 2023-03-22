@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import './css/main.css';
 import {useLocation} from 'react-router-dom';
 
@@ -13,7 +12,6 @@ function ProductView() {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, []);
-
     return (
         <>
             <header className="header small-header"></header>

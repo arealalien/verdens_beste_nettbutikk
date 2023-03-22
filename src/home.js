@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './css/main.css';
 import {Products} from "./components/products";
 import {Slider} from "./components/slider";
 
 function Home() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
     return (
         <>
             <header className="header">
