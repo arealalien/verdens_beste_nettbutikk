@@ -10,7 +10,7 @@ function Home() {
     return (
         <>
             <header className="header">
-                <div className="header-inner view-width">
+                <div className="header-inner">
                     <div className="header-inner-title">
                         <span>Welcome to</span>
                         <svg className="header-inner-title-logo" viewBox="0 0 887.46 404.28">
