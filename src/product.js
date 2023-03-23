@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import './css/main.css';
 import {useLocation} from 'react-router-dom';
+import {Carts} from "./components/cart";
 
 
 function ProductView() {
@@ -16,17 +17,7 @@ function ProductView() {
         <>
             <header className="header small-header"></header>
             <main className="main">
-                <section className="product view-width">
-                    <div className="product-left">
-                        <div className="product-left-container">
-                            <img className="product-left-container-image" src={productImage} alt="" />
-                        </div>
-                    </div>
-                    <div className="product-right">
-                        <h2 className="product-right-title">{productName}</h2>
-                        <p className="product-right-price">{productPrice}</p>
-                    </div>
-                </section>
+                <Carts productName={productName} productPrice={productPrice} productImage={productImage}></Carts>
             </main>
         </>
     );

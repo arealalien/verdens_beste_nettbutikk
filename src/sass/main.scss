@@ -224,15 +224,147 @@ html, body {
     transform: rotate(0deg);
     transition: all .35s cubic-bezier($transition-main, 1.175);
     opacity: 1;
-    &:nth-child(1) { top: 0; width: 100%; }
-    &:nth-child(2), &:nth-child(3) { top: .75em; width: 45%; }
-    &:nth-child(4) { top: 1.5em; width: 65%; }
+    &:nth-child(1) {
+      top: 0;
+      width: 100%;
+    }
+    &:nth-child(2), &:nth-child(3) {
+      top: .75em;
+      width: 45%;
+    }
+    &:nth-child(4) {
+      top: 1.5em;
+      width: 65%;
+    }
   }
   &.open {
-    span:nth-child(1) { top: 2em; width: 0; }
-    span:nth-child(2), span:nth-child(3) { transform: rotate(45deg); }
-    span:nth-child(3) { transform: rotate(-45deg); }
-    span:nth-child(4) { top: 18px; left: 50%; width: 0; }
+    span:nth-child(1) {
+      top: 2em;
+      width: 0;
+    }
+    span:nth-child(2) {
+      width: 100%;
+      transform: rotate(45deg);
+    }
+    span:nth-child(3) {
+      width: 100%;
+      transform: rotate(-45deg);
+    }
+    span:nth-child(4) {
+      top: 18px;
+      left: 50%;
+      width: 0;
+    }
+  }
+}
+.menu {
+  @include phone {
+    @include flex-col-start-center();
+  }
+  @include tablet {
+    @include flex-col-start-center();
+  }
+  top: 0;
+  width: 100%; height: 100vh;
+  display: none;
+  position: fixed;
+  background-color: hslac($background, .75);
+  backdrop-filter: blur(.25rem);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 99;
+  transition: opacity .3s cubic-bezier($transition-main, 1), backdrop-filter .3s cubic-bezier($transition-main, 1);
+  &-inner {
+    margin: 10em 0 0 0;
+    &-list-twice {
+      margin: 0 0 1em 0 !important;
+      @include phone {
+        display: grid;
+      }
+      display: none;
+      grid-template-columns: 1fr auto;
+      gap: 1.5em;
+    }
+    &-list {
+      margin: 0; padding: 0;
+      width: 100%;
+      &-item {
+        width: 100%;
+        list-style-type: none;
+        &-inner {
+          width: 100%;
+          color: hslac($black, 1);
+          font-size: $heading-large;
+          font-weight: 900;
+          text-decoration: none;
+          transition: color .15s ease-in-out;
+          @include flex-left();
+          svg {
+            width: 1em;
+            g {
+              stroke: hslac($black, 1);
+            }
+          }
+        }
+        &-inner.active {
+          color: hslac($primary, 1) !important;
+        }
+        &-inner:hover {
+          color: hslac($primary, 1);
+        }
+        &-inner:visited {
+          color: hslac($black, 1);
+        }
+        &-inner:visited:hover {
+          color: hslac($primary, 1);
+        }
+        &-button {
+          padding: .3em .1em;
+          height: auto !important;
+          position: relative;
+          background-color: hslac($background, .25);
+          border: 1px solid hslac($black, 1);
+          border-radius: 5rem;
+          @include flex-left();
+          &-input {
+            padding: 0 1em;
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            font-family: $font-main;
+            font-size: $paragraph;
+          }
+          &-input:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}
+.support-chat {
+  right: 0; bottom: 0;
+  position: fixed;
+  z-index: 90;
+  &-blob {
+    margin: 1em;
+    width: 5em; height: 5em;
+    background-color: hslac($primary, 1);
+    box-shadow: 0 12px 32px -14px hslac($primary, .75);
+    border-radius: 50%;
+    transform: scale(.95, .95);
+    transition: all .2s cubic-bezier($transition-main, 1);
+    cursor: pointer;
+    @include flex-center();
+    &:hover {
+      transform: scale(1, 1);
+    }
+    &-icon {
+      width: 2em;
+      g {
+        stroke: hslac($white, 1);
+      }
+    }
   }
 }
 .header {
@@ -492,6 +624,13 @@ html, body {
 }
 .product {
   display: grid;
+  @include phone {
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+  }
+  @include tablet {
+    gap: 1.5em;
+  }
   grid-template-columns: 40% 1fr;
   gap: 2.5em;
   &-left {
@@ -517,6 +656,7 @@ html, body {
   &-right {
     width: 100%;
     color: hslac($black, 1);
+    @include flex-col-left-ns();
     &-title {
       margin: 0;
       font-size: $heading-medium;
@@ -525,6 +665,444 @@ html, body {
     &-price {
       margin: 0;
       font-weight: 300;
+    }
+    &-size {
+      padding: 1em 0;
+      gap: 1em;
+      @include flex-left();
+      &-box {
+        width: 3em; height: 3em;
+        cursor: pointer;
+        &:nth-child(2) {
+          color: hslac($white, 1);
+          background-color: hslac($primary, 1);
+        }
+        @include flex-center();
+        p {
+          margin: 0;
+        }
+      }
+      &-box-stock {
+        border: 1px solid hslac($black, .3);
+        opacity: .5;
+        cursor: not-allowed !important;
+      }
+    }
+    &-button {
+      margin: 1em 0 0 0; padding: 1.4em 2.6em 1.4em 2.2em;
+      color: hslac($white, 1);
+      background-color: hslac($primary, 1);
+      box-shadow: 0 12px 32px -14px hslac($primary, .75);
+      border: none;
+      gap: .75em;
+      cursor: pointer;
+      @include flex-center();
+      svg {
+        width: 1.4em;
+        g {
+          stroke: hslac($white, 1);
+        }
+      }
+    }
+  }
+}
+.support-form {
+  position: relative;
+  @include flex-col();
+  &-logo {
+    @include phone {
+      bottom: -4em;
+      height: 8em;
+    }
+    @include tablet {
+      bottom: -6em;
+      height: 12em;
+    }
+    bottom: -8em;
+    height: 16em;
+    position: relative;
+    text {
+      fill: hslac($primary, 1);
+      font-family: $font-logo;
+      font-size: 361.94px;
+      tspan:nth-child(1), tspan:nth-child(3) {
+        letter-spacing: 0;
+      }
+    }
+  }
+  &-inner {
+    padding: 4em 0;
+    width: 100%;
+    position: relative;
+    background-color: hslac($background, .5);
+    box-shadow: 0 16px 38px -24px hslac($black, .15);
+    backdrop-filter: blur(.8rem);
+    z-index: 10;
+    &-line-top {
+      top: 0;
+      width: 100%; height: 1px;
+      position: absolute;
+      background: linear-gradient(90deg, hslac($black, 0) 0%, hslac($black, 1) 40%, hslac($black, 1) 60%, hslac($black, 0) 100%);
+      z-index: 111;
+    }
+    &-line-bottom {
+      bottom: 0;
+      width: 100%; height: 1px;
+      position: absolute;
+      background: linear-gradient(90deg, hslac($black, 0) 0%, hslac($black, 1) 40%, hslac($black, 1) 60%, hslac($black, 0) 100%);
+      z-index: 111;
+    }
+    &-title {
+      margin: 0 0 1em 0;
+      color: hslac($black, 1);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    &-subtitle {
+      margin: 0;
+      color: hslac($quite-gray, 1);
+      font-size: $paragraph;
+      font-weight: 300;
+    }
+    &-text {
+      margin: 0 0 2em 0;
+      color: hslac($black, 1);
+    }
+  }
+}
+.cart-text {
+  color: hslac($quite-gray, 1);
+}
+.cart-items {
+  position: relative;
+  @include flex-col();
+  &-inner {
+    width: 100%;
+    display: grid;
+    position: relative;
+    background-color: hslac($background, .5);
+    box-shadow: 0 16px 38px -24px hslac($black, .15);
+    backdrop-filter: blur(.8rem);
+    @include phone {
+      gap: 0;
+      grid-template-columns: 1fr;
+    }
+    @include tablet {
+      gap: 0;
+      grid-template-columns: 1fr;
+    }
+    grid-template-columns: 1fr auto;
+    gap: 2em;
+    &-logo {
+      @include phone {
+        bottom: -4em;
+        height: 8em;
+      }
+      @include tablet {
+        bottom: -6em;
+        height: 12em;
+      }
+      bottom: -8em;
+      height: 16em;
+      position: relative;
+      text {
+        fill: hslac($primary, 1);
+        font-family: $font-logo;
+        font-size: 361.94px;
+        tspan:nth-child(1), tspan:nth-child(3) {
+          letter-spacing: 0;
+        }
+      }
+    }
+    &-line-top {
+      top: 0;
+      width: 100%; height: 1px;
+      position: absolute;
+      background: linear-gradient(90deg, hslac($black, 0) 0%, hslac($black, 1) 40%, hslac($black, 1) 60%, hslac($black, 0) 100%);
+      z-index: 111;
+    }
+    &-line-bottom {
+      bottom: 0;
+      width: 100%; height: 1px;
+      position: absolute;
+      background: linear-gradient(90deg, hslac($black, 0) 0%, hslac($black, 1) 40%, hslac($black, 1) 60%, hslac($black, 0) 100%);
+      z-index: 111;
+    }
+    &-left {
+      width: 100%;
+      &-title {
+        color: hslac($black, 1);
+      }
+      &-inner {
+        padding: 4em 0;
+      }
+    }
+    &-right {
+      width: 100%;
+      &-title {
+        color: hslac($black, 1);
+      }
+      &-button {
+        margin: 1em 0 0 0; padding: 1.4em 2.6em 1.4em 2.2em;
+        color: hslac($white, 1);
+        background-color: hslac($primary, 1);
+        box-shadow: 0 12px 32px -14px hslac($primary, .75);
+        border: none;
+        gap: .75em;
+        opacity: .5;
+        cursor: not-allowed;
+      }
+      &-text {
+        color: hslac($quite-gray, 1);
+        font-size: calc($paragraph - .2rem);
+      }
+      &-inner {
+        padding: 4em 0;
+      }
+    }
+  }
+}
+.cart-item {
+  width: 100%;
+  display: grid;
+  @include phone {
+    grid-template-columns: 1fr;
+  }
+  grid-template-columns: 15em 1fr;
+  gap: 2em;
+  &-left {
+    width: 100%; height: 1fr;
+    position: relative;
+    overflow: hidden;
+    @include flex-center();
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+    &-image {
+      min-width: 100%; min-height: 100%;
+      max-width: 120%;
+      position: absolute;
+      object-fit: cover;
+    }
+  }
+  &-right {
+    @include flex-col-left-ns();
+    &-title {
+      margin: 0;
+      color: hslac($black, 1);
+    }
+    &-price {
+      margin: 0;
+      color: hslac($black, 1);
+    }
+    &-text {
+      margin: 0 0 .5em 0;
+      color: hslac($quite-gray, 1);
+    }
+  }
+}
+.contact-wrapper {
+  position: relative;
+}
+.contact-form {
+  padding: 3em 0;
+  width: 100%;
+  position: relative;
+  background-color: hslac($background, .5);
+  box-shadow: 0 16px 38px -24px hslac($black, .15);
+  backdrop-filter: blur(.8rem);
+  border: none;
+  gap: 2em;
+  @include flex-col-left-ns();
+  &-title {
+    color: hslac($black, 1);
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  &-line-top {
+    top: 0;
+    width: 100%; height: 1px;
+    position: absolute;
+    background: linear-gradient(90deg, hslac($black, 0) 0%, hslac($black, 1) 40%, hslac($black, 1) 60%, hslac($black, 0) 100%);
+    z-index: 111;
+  }
+  &-line-bottom {
+    bottom: 0;
+    width: 100%; height: 1px;
+    position: absolute;
+    background: linear-gradient(90deg, hslac($black, 0) 0%, hslac($black, 1) 40%, hslac($black, 1) 60%, hslac($black, 0) 100%);
+    z-index: 111;
+  }
+  &-field {
+    margin: 0; padding: 0;
+    width: 100%;
+    border: none;
+    &-double {
+      gap: 2em;
+      @include phone {
+        @include flex-col();
+      }
+      @include flex-center();
+    }
+    &-single {
+      @include flex-center();
+    }
+    &-input {
+      width: 100%;
+      gap: .5em;
+      @include flex-col-left-ns();
+      &-title {
+        color: hslac($quite-gray, 1);
+      }
+      &-inner {
+        padding: 1em;
+        width: 100%;
+        font-size: $paragraph;
+        background-color: hslac($quite-gray, .25);
+        border: none;
+      }
+    }
+    &-text {
+      width: 100%;
+      gap: .5em;
+      @include flex-col-left-ns();
+      &-title {
+        color: hslac($quite-gray, 1);
+      }
+      &-inner {
+        padding: 1em;
+        width: 100%; height: 10em;
+        font-family: $font-main;
+        font-size: $paragraph;
+        background-color: hslac($quite-gray, .25);
+        border: none;
+        resize: none;
+      }
+    }
+  }
+}
+.tos {
+  margin: 10em 0 5em 0;
+  display: grid;
+  @include phone {
+    grid-template-columns: 1fr;
+    column-gap: 4em;
+    row-gap: 2em;
+  }
+  @include tablet {
+    grid-template-columns: auto 1fr;
+    column-gap: 5em;
+    row-gap: 3em;
+  }
+  grid-template-columns: auto 1fr auto;
+  column-gap: clamp(4em, 6em, 9em);
+  row-gap: clamp(2em, 4em, 7em);
+  &-left {
+    &-title {
+      margin: 0;
+      color: hslac($primary, 1);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+  }
+  &-center {
+    &-text {
+      margin: 0;
+      color: hslac($black, 1);
+    }
+  }
+  &-right {
+    &:nth-child(3) {
+      @include phone {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        @include flex-col-left();
+      }
+      @include tablet {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        @include flex-col-left();
+      }
+    }
+    &:nth-child(6) {
+      @include phone {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 2;
+        grid-row-end: 2;
+        @include flex-col-left();
+      }
+      @include tablet {
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        @include flex-col-left();
+      }
+    }
+    &:nth-child(9) {
+      @include phone {
+        display: none;
+      }
+      @include tablet {
+        display: none;
+      }
+    }
+    &:nth-child(12) {
+      @include phone {
+        display: none;
+      }
+      @include tablet {
+        display: none;
+      }
+    }
+    &:nth-child(15) {
+      @include phone {
+        display: none;
+      }
+      @include tablet {
+        display: none;
+      }
+    }
+    &-title {
+      margin: 0;
+      color: hslac($black, 1);
+      font-weight: 800;
+    }
+    &-list {
+      margin: 0; padding: 0;
+      list-style-type: none;
+      gap: .25em;
+      @include flex-col-left();
+      &-item {
+        &-link {
+          color: hslac($primary, 1);
+          cursor: pointer;
+          gap: .5em;
+          @include flex-left();
+          svg {
+            width: .7em;
+            path, line {
+              fill: none;
+              stroke: hslac($primary, 1);
+              stroke-linecap: round;
+              stroke-linejoin: round;
+              stroke-width: 2px;
+            }
+            g {
+              stroke: hslac($primary, 1);
+            }
+          }
+        }
+      }
     }
   }
 }
