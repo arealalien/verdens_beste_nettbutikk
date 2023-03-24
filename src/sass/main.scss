@@ -54,7 +54,7 @@ html, body {
     height: 100%;
     display: grid;
     @include phone {
-      padding: 0;
+      padding: 0 1.5em;
       grid-template-columns: auto 1fr;
     }
     @include tablet {
@@ -65,7 +65,7 @@ html, body {
       padding: 0 2.5em;
       grid-template-columns: 1fr auto 1fr;
     }
-    background: linear-gradient(90deg, hslac($background, 0) 0, hslac($background, .75) 50%, hslac($background, 0) 100%);
+    background: linear-gradient(90deg, hslac($background-dark, 0) 0, hslac($background-dark, .75) 50%, hslac($background-dark, 0) 100%);
     box-shadow: 0 16px 38px -24px hslac($black, .15);
     backdrop-filter: blur(.8rem);
     &-line-top {
@@ -149,7 +149,7 @@ html, body {
     }
     &-item-inner {
       width: 100%; height: 100%;
-      color: hslac($black, 1);
+      color: hslac($white, 1);
       text-transform: uppercase;
       text-decoration: none;
       font-weight: 300;
@@ -160,7 +160,7 @@ html, body {
       svg {
         width: 1em;
         g {
-          stroke: hslac($black, 1);
+          stroke: hslac($white, 1);
         }
       }
     }
@@ -171,7 +171,7 @@ html, body {
       color: hslac($primary, 1);
     }
     &-item-inner:visited {
-      color: hslac($black, 1);
+      color: hslac($white, 1);
     }
     &-item-inner:visited:hover {
       color: hslac($primary, 1);
@@ -180,16 +180,20 @@ html, body {
       padding: .5em .75em;
       height: auto !important;
       position: relative;
-      background-color: hslac($background, .25);
+      background-color: hslac($background-dark, .25);
       border: 1px solid hslac($black, 1);
       border-radius: 5rem;
       @include flex-left();
       &-input {
         padding: 0 .5em;
         display: none;
+        color: hslac($white, 1);
         background-color: transparent;
         border: none;
         font-family: $font-main;
+        &::placeholder {
+          color: hslac($white, 1);
+        }
       }
       &-input:focus {
         outline: none;
@@ -219,7 +223,7 @@ html, body {
     width: 100%; height: 2px;
     display: block;
     position: absolute;
-    background: hslac($black, 1);
+    background: hslac($white, 1);
     border-radius: 1em;
     transform: rotate(0deg);
     transition: all .35s cubic-bezier($transition-main, 1.175);
@@ -268,7 +272,7 @@ html, body {
   width: 100%; height: 100vh;
   display: none;
   position: fixed;
-  background-color: hslac($background, .75);
+  background-color: hslac($background-dark, .75);
   backdrop-filter: blur(.25rem);
   pointer-events: none;
   opacity: 0;
@@ -293,7 +297,7 @@ html, body {
         list-style-type: none;
         &-inner {
           width: 100%;
-          color: hslac($black, 1);
+          color: hslac($white, 1);
           font-size: $heading-large;
           font-weight: 900;
           text-decoration: none;
@@ -302,7 +306,7 @@ html, body {
           svg {
             width: 1em;
             g {
-              stroke: hslac($black, 1);
+              stroke: hslac($white, 1);
             }
           }
         }
@@ -313,7 +317,7 @@ html, body {
           color: hslac($primary, 1);
         }
         &-inner:visited {
-          color: hslac($black, 1);
+          color: hslac($white, 1);
         }
         &-inner:visited:hover {
           color: hslac($primary, 1);
@@ -322,17 +326,21 @@ html, body {
           padding: .3em .1em;
           height: auto !important;
           position: relative;
-          background-color: hslac($background, .25);
+          background-color: hslac($background-dark, .25);
           border: 1px solid hslac($black, 1);
           border-radius: 5rem;
           @include flex-left();
           &-input {
             padding: 0 1em;
             width: 100%;
+            color: hslac($white, 1);
             background-color: transparent;
             border: none;
             font-family: $font-main;
             font-size: $paragraph;
+            &::placeholder {
+              color: hslac($white, 1);
+            }
           }
           &-input:focus {
             outline: none;
@@ -367,8 +375,14 @@ html, body {
     }
   }
 }
+.header-big {
+  height: 100vh;
+}
+.header-small {
+  height: 50vh;
+}
 .header {
-  width: 100%; height: 100vh;
+  width: 100%;
   position: relative;
   overflow: hidden;
   @include flex-center();
@@ -377,6 +391,38 @@ html, body {
     position: relative;
     user-select: none;
     @include flex-center();
+    &::after {
+      width: 100%; height: 100%;
+      content: "";
+      position: absolute;
+      background: linear-gradient(hslac($black, 0) 0, hslac($black, .15) 50%, hslac($black, .35) 100%);
+      z-index: 2;
+    }
+    &-scrolldown {
+      bottom: 5em;
+      position: absolute;
+      z-index: 10;
+      span {
+        width: 1.5em; height: 1.5em;
+        display: block;
+        border-right: 1px solid hslac($white, 1);
+        border-bottom: 1px solid hslac($white, 1);
+        transform: rotate(45deg);
+        margin: -.5em;
+        animation: animateDown 2s infinite cubic-bezier($transition-main, 1);
+      }
+      span:nth-child(2) {
+        animation-delay: -0.2s;
+      }
+      span:nth-child(3) {
+        animation-delay: -0.4s;
+      }
+    }
+    @keyframes animateDown {
+      0% { opacity: 0; }
+      50% { opacity: 1; transform: rotate(45deg) translate(10px, 10px); }
+      100% { opacity: 0; }
+    }
     &-title {
       position: absolute;
       @include flex-col();
@@ -431,9 +477,6 @@ html, body {
       }
     }
   }
-}
-.small-header {
-  height: 9em;
 }
 .slider {
   width: 100%;
@@ -570,7 +613,7 @@ html, body {
         &-price {
           margin: 0;
           color: hslac($white, 1);
-          font-weight: 200;
+          font-weight: 300;
         }
       }
       &-right {

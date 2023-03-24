@@ -9,8 +9,13 @@ function Home() {
     }, []);
     return (
         <>
-            <header className="header">
+            <header className="header header-big">
                 <div className="header-inner">
+                    <div className="header-inner-scrolldown">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                     <div className="header-inner-title">
                         <span>Welcome to</span>
                         <svg className="header-inner-title-logo" viewBox="0 0 887.46 404.28">

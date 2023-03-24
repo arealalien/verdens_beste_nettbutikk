@@ -15,7 +15,17 @@ function ProductView() {
     }, []);
     return (
         <>
-            <header className="header small-header"></header>
+            <header className="header header-small">
+                <div className="header-inner">
+                    <div className="header-inner-background">
+                        <div className="header-inner-background-left"></div>
+                        <div className="header-inner-background-center">
+                            <img className="header-inner-background-center-image" src={productImage} alt="" />
+                        </div>
+                        <div className="header-inner-background-right"></div>
+                    </div>
+                </div>
+            </header>
             <main className="main">
                 <Carts productName={productName} productPrice={productPrice} productImage={productImage}></Carts>
             </main>
