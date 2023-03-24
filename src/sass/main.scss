@@ -51,20 +51,21 @@ html, body {
   z-index: 100;
   @include flex-center();
   &-inner {
+    padding: 0 2.5em;
     height: 100%;
+    position: relative;
     display: grid;
     @include phone {
       padding: 0 1.5em;
+      background: linear-gradient(90deg, hslac($background-dark, 0) 0, hslac($background-dark, .35) 50%, hslac($background-dark, 0) 100%);
       grid-template-columns: auto 1fr;
     }
     @include tablet {
       padding: 0 2em;
+      background: linear-gradient(90deg, hslac($background-dark, 0) 0, hslac($background-dark, .5) 50%, hslac($background-dark, 0) 100%);
       grid-template-columns: auto 1fr;
     }
-    @include desktop {
-      padding: 0 2.5em;
-      grid-template-columns: 1fr auto 1fr;
-    }
+    grid-template-columns: 1fr auto 1fr;
     background: linear-gradient(90deg, hslac($background-dark, 0) 0, hslac($background-dark, .75) 50%, hslac($background-dark, 0) 100%);
     box-shadow: 0 16px 38px -24px hslac($black, .15);
     backdrop-filter: blur(.8rem);
