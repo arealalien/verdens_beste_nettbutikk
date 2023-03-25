@@ -11,11 +11,6 @@ function Home() {
         <>
             <header className="header header-big">
                 <div className="header-inner">
-                    <div className="header-inner-scrolldown">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
                     <div className="header-inner-scroll">
                         <span></span>
                         <span></span>

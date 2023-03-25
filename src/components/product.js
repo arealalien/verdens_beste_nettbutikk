@@ -17,7 +17,7 @@ export function Product({productName, productPrice, productImage}) {
             <>
                 <div className="products-block">
                     <div className="products-block-bottom">
-                        <div className="products-block-bottom-left">
+                        <div className="products-block-bottom-left" onClick={()=>{toComponentB()}}>
                             <h2 className="products-block-bottom-left-title">{productName}</h2>
                             <p className="products-block-bottom-left-price">{productPrice}</p>
                         </div>
