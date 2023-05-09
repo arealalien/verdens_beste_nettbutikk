@@ -1,12 +1,20 @@
 import React from "react";
-import {useNavigate} from 'react-router-dom';
+import { clothes } from "./productList";
+import { cart } from './cartList';
 
-export function Carts({productName, productPrice, productImage}) {
+export function Carts({productId}) {
+    const product = clothes.find(clothe => clothe.productId === productId);
 
-    const navigate = useNavigate();
+    const toCart = (productId) => {
+        let newProductId = product.productId;
 
-    const toCart = () => {
-        navigate('/cart', {state: {productName: productName, productPrice: productPrice, productImage: productImage}});
+        const newProduct = {
+            newProductId,
+            quantity: 1
+        };
+
+        cart.push(newProduct);
+        console.log(cart)
     };
 
     return (
@@ -14,12 +22,18 @@ export function Carts({productName, productPrice, productImage}) {
             <section className="product view-width">
                 <div className="product-left">
                     <div className="product-left-container">
-                        <img className="product-left-container-image" src={productImage} alt=""/>
+                        {product && (
+                            <img className="product-left-container-image" src={product.productImages[0]} alt=""/>
+                        )}
                     </div>
                 </div>
                 <div className="product-right">
-                    <h2 className="product-right-title">{productName}</h2>
-                    <p className="product-right-price">$ {productPrice}</p>
+                    {product && (
+                        <h2 className="product-right-title">{product.productName}</h2>
+                    )}
+                    {product && (
+                        <p className="product-right-price">$ {product.productPrice}</p>
+                    )}
                     <div className="product-right-size">
                         <div className="product-right-size-box product-right-size-box-stock">
                             <p>S</p>

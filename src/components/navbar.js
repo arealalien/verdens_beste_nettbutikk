@@ -53,8 +53,6 @@ export function Navbar() {
         <>
             <nav className="navbar">
                 <div className="navbar-inner view-width">
-                    <div className="navbar-inner-line-top"></div>
-                    <div className="navbar-inner-line-bottom"></div>
                     <div className="navbar-left">
                         <div className="navbar-left-items-wrapper">
                             <ul className="navbar-left-items">

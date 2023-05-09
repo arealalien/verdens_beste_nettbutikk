@@ -30,7 +30,7 @@ function ProductView() {
             </header>
             <main className="main">
                 {product && (
-                    <Carts productName={product.productName} productPrice={product.productPrice} productImage={product.productImages[0]}></Carts>
+                    <Carts productId={product.productId}></Carts>
                 )}
             </main>
         </>

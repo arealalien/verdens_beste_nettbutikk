@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
 import './css/main.css';
-import {Slider} from "./components/slider";
-import {useLocation} from "react-router-dom";
+import { Slider } from "./components/slider";
+import { useLocation } from "react-router-dom";
+import { clothes } from "./components/productList";
+import { cart } from './components/cartList';
 
 function Cart() {
     useEffect(() => {
@@ -9,9 +11,8 @@ function Cart() {
     }, []);
     const location = useLocation();
     if (location.state) {
-        const productName = location.state.productName;
-        const productPrice = location.state.productPrice;
-        const productImage = location.state.productImage;
+        const productId = location.state && location.state.productId;
+        const product = clothes.find(clothe => clothe.productId === productId);
 
         return (
             <>
@@ -40,19 +41,27 @@ function Cart() {
                                     <h2 className="cart-items-inner-left-title">Your items</h2>
                                     <div className="cart-item">
                                         <div className="cart-item-left">
-                                            <img className="cart-item-left-image" src={productImage} alt="" />
+                                            {product && (
+                                                <img className="cart-item-left-image" src={product.productImage} alt="" />
+                                            )}
                                         </div>
                                         <div className="cart-item-right">
-                                            <h2 className="cart-item-right-title">{productName}</h2>
+                                            {product && (
+                                                <h2 className="cart-item-right-title">{product.productName}</h2>
+                                            )}
                                             <p className="cart-item-right-text">Size: M</p>
-                                            <p className="cart-item-right-price">{productPrice}</p>
+                                            {product && (
+                                                <p className="cart-item-right-price">{product.productPrice}</p>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="cart-items-inner-right">
                                 <div className="cart-items-inner-right-inner">
-                                    <h2 className="cart-items-inner-right-title">Checkout - {productPrice}</h2>
+                                    {product && (
+                                        <h2 className="cart-items-inner-right-title">Checkout - {product.productPrice}</h2>
+                                    )}
                                     <p className="cart-items-inner-right-text">(Checkout is currenty disabled for this prototype)</p>
                                     <button className="cart-items-inner-right-button">Checkout</button>
                                 </div>
