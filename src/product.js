@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react';
 import './css/main.css';
-import {useLocation} from 'react-router-dom';
-import {Carts} from "./components/cart";
+import { useLocation } from 'react-router-dom';
+import { Carts } from "./components/cart";
+import { clothes } from "./components/productList";
 
 
 function ProductView() {
     const location = useLocation();
-    const productName = location.state.productName;
-    const productPrice = location.state.productPrice;
-    const productImage = location.state.productImage;
+    const productId = location.state && location.state.productId;
+    const product = clothes.find(clothe => clothe.productId === productId);
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -20,14 +20,18 @@ function ProductView() {
                     <div className="header-inner-background">
                         <div className="header-inner-background-left"></div>
                         <div className="header-inner-background-center">
-                            <img className="header-inner-background-center-image" src={productImage} alt="" />
+                            {product && (
+                                <img className="header-inner-background-center-image" src={product.productImages[0]} alt="" />
+                            )}
                         </div>
                         <div className="header-inner-background-right"></div>
                     </div>
                 </div>
             </header>
             <main className="main">
-                <Carts productName={productName} productPrice={productPrice} productImage={productImage}></Carts>
+                {product && (
+                    <Carts productName={product.productName} productPrice={product.productPrice} productImage={product.productImages[0]}></Carts>
+                )}
             </main>
         </>
     );

@@ -11,6 +11,7 @@ export function Products({ident, amount}) {
                 <section id={ident} className="products view-width">
                     {productsToRender.map((clothe) => (
                         <Product
+                            productId={clothe.productId}
                             productName={clothe.productName}
                             productPrice={clothe.productPrice}
                             productImage={clothe.productImages[0]}

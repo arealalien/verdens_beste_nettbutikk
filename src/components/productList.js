@@ -1,5 +1,6 @@
 export const clothes = [
     {
+        productId: 1,
         productName: "Purple Coat",
         productPrice: 59.99,
         productImages: [
@@ -8,6 +9,7 @@ export const clothes = [
         ]
     },
     {
+        productId: 2,
         productName: "Blue",
         productPrice: 69.99,
         productImages: [
@@ -18,6 +20,7 @@ export const clothes = [
         ]
     },
     {
+        productId: 3,
         productName: "Flower Dress",
         productPrice: 69.99,
         productImages: [
@@ -26,6 +29,7 @@ export const clothes = [
         ]
     },
     {
+        productId: 4,
         productName: "Cargo Pants",
         productPrice: 49.99,
         productImages: [
@@ -34,6 +38,7 @@ export const clothes = [
         ]
     },
     {
+        productId: 5,
         productName: "Yellow T-Shirt",
         productPrice: 13.99,
         productImages: [
