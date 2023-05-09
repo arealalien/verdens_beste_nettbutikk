@@ -19,7 +19,7 @@ export function Carts({productName, productPrice, productImage}) {
                 </div>
                 <div className="product-right">
                     <h2 className="product-right-title">{productName}</h2>
-                    <p className="product-right-price">{productPrice}</p>
+                    <p className="product-right-price">$ {productPrice}</p>
                     <div className="product-right-size">
                         <div className="product-right-size-box product-right-size-box-stock">
                             <p>S</p>

@@ -11,10 +11,14 @@ function Home() {
         <>
             <header className="header header-big">
                 <div className="header-inner">
-                    <div className="header-inner-scroll">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <div className="header-inner-scrolldown">
+                        <svg viewBox="0 0 13.55 7.55">
+                            <g id="arrow-outer" data-name="arrow-outer">
+                                <g id="arrow">
+                                    <path id="arrow-stroke" d="m12.8.75l-6.02,6.05L.75.75"/>
+                                </g>
+                            </g>
+                        </svg>
                     </div>
                     <div className="header-inner-title">
                         <span>Welcome to</span>
@@ -33,7 +37,7 @@ function Home() {
                 </div>
             </header>
             <Slider name={"Spring Sale!"}></Slider>
-            <Products ident={"showcase"}></Products>
+            <Products ident={"showcase"} amount={5}></Products>
         </>
     );
 }

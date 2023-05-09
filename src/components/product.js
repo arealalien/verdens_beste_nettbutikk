@@ -1,16 +1,16 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom';
 
-export function Product({productName, productPrice, productImage}) {
+export function Product({productName, productPrice, productImage, productImage2}) {
 
-        const navigate = useNavigate();
+    const navigate = useNavigate();
 
-        const toComponentB = () => {
-            navigate('/product',{state:{productName: productName, productPrice: productPrice, productImage: productImage}});
-        };
+    const toComponentB = () => {
+        navigate('/product',{state:{productName: productName, productPrice: productPrice, productImage: productImage, productImage2: productImage2}});
+    };
 
     const toCart = () => {
-        navigate('/cart', {state: {productName: productName, productPrice: productPrice, productImage: productImage}});
+        navigate('/cart', {state: {productName: productName, productPrice: productPrice, productImage: productImage, productImage2: productImage2}});
     };
 
         return (
@@ -19,7 +19,7 @@ export function Product({productName, productPrice, productImage}) {
                     <div className="products-block-bottom">
                         <div className="products-block-bottom-left" onClick={()=>{toComponentB()}}>
                             <h2 className="products-block-bottom-left-title">{productName}</h2>
-                            <p className="products-block-bottom-left-price">{productPrice}</p>
+                            <p className="products-block-bottom-left-price">$ {productPrice}</p>
                         </div>
                         <div className="products-block-bottom-right" onClick={()=>{toCart()}}>
                             <button className="products-block-bottom-right-button">
@@ -32,6 +32,7 @@ export function Product({productName, productPrice, productImage}) {
                     <div className="products-block-overlay" onClick={()=>{toComponentB()}}></div>
                     <div className="products-block-background">
                         <img className="products-block-background-image" src={productImage} alt="" />
+                        <img className="products-block-background-image-2" src={productImage2} alt="" />
                     </div>
                 </div>
             </>
