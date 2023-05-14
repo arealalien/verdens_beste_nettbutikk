@@ -650,7 +650,7 @@ html, body {
         max-width: 110%;
         position: absolute;
         object-fit: cover;
-        transition: opacity .3s cubic-bezier($transition-main, 1);
+        transition: opacity .15s cubic-bezier($transition-main, 1);
       }
       &-image-2 {
         min-width: 100%; min-height: 100%;
@@ -658,7 +658,7 @@ html, body {
         position: absolute;
         object-fit: cover;
         opacity: 0;
-        transition: opacity .3s cubic-bezier($transition-main, 1);
+        transition: opacity .15s cubic-bezier($transition-main, 1);
       }
     }
   }
