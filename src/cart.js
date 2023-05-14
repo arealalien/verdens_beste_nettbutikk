@@ -1,19 +1,14 @@
 import React, {useEffect} from 'react';
 import './css/main.css';
 import { Slider } from "./components/slider";
-import { useLocation } from "react-router-dom";
-import { clothes } from "./components/productList";
 import { cart } from './components/cartList';
 
 function Cart() {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, []);
-    const location = useLocation();
-    if (location.state) {
-        const productId = location.state && location.state.productId;
-        const product = clothes.find(clothe => clothe.productId === productId);
 
+    if (cart.length !== 0) {
         return (
             <>
                 <header className="header header-small">
@@ -39,29 +34,23 @@ function Cart() {
                             <div className="cart-items-inner-left">
                                 <div className="cart-items-inner-left-inner">
                                     <h2 className="cart-items-inner-left-title">Your items</h2>
-                                    <div className="cart-item">
-                                        <div className="cart-item-left">
-                                            {product && (
-                                                <img className="cart-item-left-image" src={product.productImage} alt="" />
-                                            )}
+                                    {cart.map(item => (
+                                        <div className="cart-item" key={item.newProductId}>
+                                            <div className="cart-item-left">
+                                                <img className="cart-item-left-image" src={item.newProductImage} alt="" />
+                                            </div>
+                                            <div className="cart-item-right">
+                                                <h2 className="cart-item-right-title">{item.newProductName}</h2>
+                                                <p className="cart-item-right-text">Size: M</p>
+                                                <p className="cart-item-right-price">{item.newProductPrice}</p>
+                                            </div>
                                         </div>
-                                        <div className="cart-item-right">
-                                            {product && (
-                                                <h2 className="cart-item-right-title">{product.productName}</h2>
-                                            )}
-                                            <p className="cart-item-right-text">Size: M</p>
-                                            {product && (
-                                                <p className="cart-item-right-price">{product.productPrice}</p>
-                                            )}
-                                        </div>
-                                    </div>
+                                    ))}
                                 </div>
                             </div>
                             <div className="cart-items-inner-right">
                                 <div className="cart-items-inner-right-inner">
-                                    {product && (
-                                        <h2 className="cart-items-inner-right-title">Checkout - {product.productPrice}</h2>
-                                    )}
+                                    <h2 className="cart-items-inner-right-title">Checkout</h2>
                                     <p className="cart-items-inner-right-text">(Checkout is currenty disabled for this prototype)</p>
                                     <button className="cart-items-inner-right-button">Checkout</button>
                                 </div>

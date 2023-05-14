@@ -5,11 +5,17 @@ import { cart } from './cartList';
 export function Carts({productId}) {
     const product = clothes.find(clothe => clothe.productId === productId);
 
-    const toCart = (productId) => {
+    const toCart = (productId, productName, productImage, productPrice) => {
         let newProductId = product.productId;
+        let newProductName = product.productName;
+        let newProductImage = product.productImages[0];
+        let newProductPrice = product.productPrice;
 
         const newProduct = {
             newProductId,
+            newProductName,
+            newProductImage,
+            newProductPrice,
             quantity: 1
         };
 

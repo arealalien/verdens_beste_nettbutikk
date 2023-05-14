@@ -879,10 +879,14 @@ html, body {
     &-left {
       width: 100%;
       &-title {
+        margin: 0;
         color: hslac($black, 1);
       }
       &-inner {
         padding: 4em 0;
+        gap: 1em;
+        @include flex-col-left-ns();
+
       }
     }
     &-right {
